@@ -5,7 +5,7 @@ const PageTitle = ({title}) => {
     return (
         <div>
           <Helmet>
-              <title> {title}-Online-IT-Service</title>
+              <title> {title}-Fruits-Wirehouse</title>
               </Helmet>  
         </div>
     );

@@ -1,21 +1,21 @@
-.auth{
+.java-node{
     background-color: rgb(216, 216, 236);
     margin-top: 10px;
    
 }
-.auth p{
+.java-node p{
     padding: 0 30px 10px 50px; 
     
    
 }
 
-.firebase{
+.sql-nosql{
     background-color: bisque;
     margin-bottom: 20px;
     
    
 }
-.firebase p{
+.sql-nosql p{
     padding: 0 30px 3px 50px; 
     
    
@@ -30,23 +30,15 @@ h5 {
      
 }
 
-.firebase  li{
-    margin-left: 70px;
-   
-
-}
 
 
 
-.firebase-service{
+.jwt{
     background-color: rgb(219, 219, 152);
 }
 
-.firebase-service p{
+.jwt p{
     padding: 0 30px 3px 50px; 
     font-weight: 600;
 }
 
-.firebase-service li{
-     margin-left: 70px;
-}

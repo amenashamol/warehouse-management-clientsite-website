@@ -5,6 +5,7 @@ import Header from './Pages/Shared/Header/Header';
 import Home from './Pages/Home/Home';
 import Blogs from './Pages/Blogs/Blogs';
 import NotFound from './Pages/NotFound/NotFound';
+import Inventory from './Pages/Inventory/Inventory';
 import Footer from './Pages/Shared/Footer/Footer';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   
   
   <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+  <Route path='/inventory' element={<Inventory></Inventory>}></Route>
   
   <Route path='*' element={<NotFound></NotFound>}></Route>
 </Routes>

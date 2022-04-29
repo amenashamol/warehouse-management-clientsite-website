@@ -7,7 +7,7 @@ const Footer = () => {
         <div className='bg-info'>
             <footer className='text-center mt-5 p-2' style={{height:"100px"}}>
                 <p><small style={{color:"blue"}}>copyright @ {year} </small></p>
-                <p style={{color:'red'}}> By Online-IT-Service</p>
+                <p style={{color:'red'}}> By Fruits-Wirehouse</p>
             </footer>
         </div>
     );

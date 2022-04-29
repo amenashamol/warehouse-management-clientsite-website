@@ -6,43 +6,34 @@ const Blogs = () => {
     
     return (
         <div>
-         <div className='auth'>
-                <h2> #Difference between authorization and authentication:</h2>
+         <div className='java-node'>
+                <h2> #Difference between javascript and nodejs:</h2>
                 <p>
-                In the digital world, authentication and authorization accomplish these same goals. Authentication is used to verify that users really are who they represent themselves to be. Once this has been confirmed, authorization is then used to grant the user permission to access different levels of information and perform specific functions, depending on the rules established for different types of users.Authentication works through passwords, one-time pins, biometric information, and other information provided or entered by the user.Authorization works through settings that are implemented and maintained by the organization.
+                Javascript is a programming language that is used for writing scripts on the website. 
+                NodeJS is a Javascript runtime environment.Javascript can only be run in the browsers.We can run Javascript outside the browser with the help of NodeJS.Javascript is basically used on the client-side.NodeJS is mostly used on the server-side.Javascript is capable enough to add HTML and play with the DOM.Nodejs does not have capability to add HTML tags.Javascript can run in any browser engine as like JS core in safari and Spidermonkey in Firefox. V8 is the Javascript engine inside of node.js that parses and runs Javascript.
                 </p>   
             </div>
    
-          <div className='firebase'>
-            <h2> #Firebase Use Cases:</h2>
+          <div className='sql-nosql'>
+            <h2> #Differences between sql and nosql databases:</h2>
             <p >
-            Google Firebase offers many features that pitch it as the go-to backend development tool for web and mobile apps. It reduces development workload and time. And it's a perfect prototyping tool. Firebase is simple, lightweight, friendly, and industrially recognized
+            SQL databases are primarily called as Relational Databases (RDBMS); whereas NoSQL database are primarily called as non-relational or distributed database.SQL databases defines and manipulates data based structured query language .A NoSQL database has dynamic schema for unstructured data.SQL databases are table-based on the other hand NoSQL databases are either key-value pairs, document-based, graph databases or wide-column stores.SQL databases follow ACID properties (Atomicity, Consistency, Isolation and Durability) whereas the NoSQL database follows the Brewers CAP theorem (Consistency, Availability and Partition tolerance). 
             </p> 
-            <h2>#Other options to implement authentication:</h2>
-            <h5> Top Alternatives to Firebase Authentication:</h5> 
-            <li>Cloud Firestore</li>
-                <li> Auth0</li>
-                <li>Amazon Cognito </li> 
-                <li>Passport   </li>
-                <li>MongoDB</li>
-                <li>JSON      </li>
-                <li>Web Token  </li>  
-                <li>Okta </li>  
+             
                
                
           </div> 
 
-           <div className='firebase-service'>
-            <h2> #other services of firebase other than authentication:</h2>
+           <div className='jwt'>
+            <h2> #purpose of jwt and how does it work:</h2>
             <p >
-                There are many services which Firebase provides other than authentication, Most useful of them are:</p> 
-                <li>Cloud Firestore</li>
-                <li>Cloud Functions</li>
-                <li>Hosting        </li> 
-                <li>Cloud Storage   </li>
-                <li>Google Analytics</li>
-                <li>Predictions     </li>
-                <li>Cloud Messaging  </li>  
+            JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server.For beginning developers, JSON stands for JavaScript Object Notation and is a text-based format for transmitting data across web applications. It stores information in an easy-to-access manner, both for developers and computers.
+
+
+            JWTs differ from other web tokens in that they contain a set of claims. Claims are used to transmit information between two parties. What these claims are depends on the use case at hand. For example, a claim may assert who issued the token, how long it is valid for, or what permissions the client has been granted.
+            
+            </p> 
+                 
                
           </div> 
           <PageTitle title="Blogs"></PageTitle>    

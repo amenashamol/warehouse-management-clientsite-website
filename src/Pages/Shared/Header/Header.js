@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../../../images/it.jpg'
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import logo from '../../../images/it.jpg'
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import CustomLink from '../../CustomLink/CustomLink';
 //import logo from '../../../../images/logo.png'
 //import { useAuthState } from 'react-firebase-hooks/auth';
 //import auth from '../../../../firebase.init';
 //import { signOut } from 'firebase/auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Header.css'
-import CustomLink from '../../../CustomLink/CustomLink';
+
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../../firebase.init';
+import auth from '../../../firebase-init';
 import { signOut } from 'firebase/auth';
 
 const Header = () => {
@@ -37,7 +38,7 @@ const Header = () => {
     
     <Nav className="ms-auto">
       <CustomLink as={Link} to="home#services" id='#services'>Services</CustomLink>
-     
+      
       <CustomLink as={Link} to="/blogs">Blogs</CustomLink>
       {
         user ?

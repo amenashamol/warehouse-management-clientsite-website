@@ -1,0 +1,12 @@
+.slide-title{
+   text-align: center; 
+   margin-top: 30px;
+   margin-bottom: 20px;
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+   color: rgb(241, 104, 41);
+}
+
+.slide-title span{
+    color: rgb(8, 133, 138);
+    margin-bottom: 20px;
+}

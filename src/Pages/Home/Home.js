@@ -1,4 +1,5 @@
 import React from 'react';
+import Inventories from '../Inventories/Inventories';
 import PageTitle from '../PageTitle/PageTitle';
 
 import Banner from './Banner/Banner';
@@ -8,7 +9,7 @@ const Home = () => {
     return (
         <div>
            <Banner></Banner>
-           
+           <Inventories></Inventories>
             <PageTitle title="Home"></PageTitle> 
         </div>
     );

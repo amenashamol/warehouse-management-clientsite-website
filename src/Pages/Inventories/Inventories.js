@@ -1,5 +1,5 @@
 import React from 'react';
-import Inventory from '../Inventory/Inventory';
+import Service from '../Service/Service';
 import './Inventories.css'
 import logo1 from '../../images/graphics.jpg'
 import logo2 from '../../images/web development.jpg'
@@ -8,7 +8,7 @@ import logo4 from '../../images/networking.jpg'
 import PageTitle from '../PageTitle/PageTitle';
 
 
-const inventories= [
+const services= [
   {id:1 , name:'Graphics', price:3000, description:"Learn Photoshop, Illustrator, and InDesign by creating posters, logos, and more.", img:logo1},
   {id:2 , name:'Web Development', price:6000,description:"Online courses for building websites from scratch using popular tools and languages like HTML, CSS, Python, JavaScript, and more.",img:logo2},
   {id:3 , name:'Database', price:5000,description:"Learn Database Programming online at your own pace. Start today with a special offer. Join millions of learners already learning on Udemy", img:logo3},
@@ -16,36 +16,36 @@ const inventories= [
   
   
 ]
-const Inventories = () => {
+const Services = () => {
   
 
   
 
     return (
-        <div id ="#Inventories" className='container' >
+        <div id ="#services" className='container' >
             <div className='row'>
             <h1 className='text-primary text-center mt-5 mb-2'> our Services</h1>
             <div style={{height:'5px', width:"215px", borderRadius:"20px"}} className="bg-primary  mx-auto mt-0"></div>
 
-                <div className='Inventories-container'>
+                <div className='services-container'>
 
                     {
-                        inventories.map(Inventory=> <Inventory
-                        key={Inventory.id}
-                        Inventory={Inventory}
+                        services.map(service=> <Service
+                        key={service.id}
+                        service={service}
                         
                         >
 
-                        </Inventory>)
+                        </Service>)
                     }
 
                 </div>
             </div>
 
             
-            <PageTitle title="Inventory"></PageTitle>    
+            <PageTitle title="Service"></PageTitle>    
         </div>
     );
 };
 
-export default Inventories;
+export default Services;

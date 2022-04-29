@@ -1,0 +1,15 @@
+.service{
+    margin-top: 30px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid rgb(197, 135, 135);
+    padding: 8px;
+}
+
+.service button{
+    margin-bottom: 3px;
+}
+
+.service h2{
+    color: rgb(4, 100, 68);
+}

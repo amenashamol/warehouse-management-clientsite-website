@@ -11,8 +11,8 @@ const Banner = () => {
     return (
         <div>
           <div className='slide-title'>
-          <h2 >Learn New Skills in IT Field </h2> 
-          <h3 > <span> And Build Your Bright Career</span> </h3>
+          <h2 >Order Our Fresh Fruits  </h2> 
+          <h3 > <span> And Keep Your Body Healthy</span> </h3>
           </div>
           
   <Carousel>

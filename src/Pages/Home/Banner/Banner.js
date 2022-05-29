@@ -3,16 +3,17 @@ import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import './Banner.css'
 
-import banner1 from '../../../images/computer1.jpg'
-import banner2 from '../../../images/computer2.jpg'
+import banner1 from '../../../images/bbb1.jpg'
+import banner2 from '../../../images/bbb2.jpg'
+import banner3 from '../../../images/bb3.jpg'
 
 
 const Banner = () => {
     return (
         <div>
           <div className='slide-title'>
-          <h2 >Order Our Fresh Fruits  </h2> 
-          <h3 > <span> And Keep Your Body Healthy</span> </h3>
+          <h2 >The new fresh fruit, vegetable and greens warehouse   </h2> 
+          <h3 > <span> of Coto in Bangladesh</span> </h3>
           </div>
           
   <Carousel>
@@ -32,6 +33,17 @@ const Banner = () => {
       className="d-block w-100 "  style={{height:"450px"}}
       src={banner2}
       alt="Second slide"
+    />
+    <Carousel.Caption>
+      
+      {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item interval={500}>
+    <img
+      className="d-block w-100 "  style={{height:"450px"}}
+      src={banner3}
+      alt="Third slide"
     />
     <Carousel.Caption>
       

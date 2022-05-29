@@ -1,35 +1,38 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import UpdateModal from '../updateModal/UpdateModal';
+import React,{useState,useEffect} from 'react';
+import { Link } from 'react-router-dom';
+
 import './Service.css'
 
-const Service = ({service}) => {
-    const{id,name,img,price,description}=service
+const Service = ({item}) => {
+    const{name,img,description,price,quantity}=item
+    const [itms,setItms]=useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/inventory')
+        .then(res=>res.json())
+        .then(data=>setItms(data))
+        
+    }, [])
+    
+
+    
    
-    const navigate=useNavigate()
-    // const navigateServiceDetails=id=>{
-    //         navigate(`/service/${id}`)
-    // }
+    
     return (
         <div className='service'>  
               <h2 style={{marginBottom:"10px"}}>{name}</h2>
               <img className='w-100'  style={{height:"300px"}} src={img} alt=""/> 
-              <p>price:{price}</p>
-              <p>{description}</p>
-              <div className='flex d-flex ms-4' >
-                  <div > 
-                  <button  className='color-801336 btn btn-primary mx-2  '>
-                    delete
-                   </button>
-                  </div>
-
-              <div>
+              <p>Description:{description}</p>
+              <p>Price:{price}</p>
+              <p>Quantity:{quantity}</p>
+              <p>Supplier_Name:{quantity}</p>
+              
+              
                   
-                  <UpdateModal></UpdateModal>
-                 
+              <Link to={`/inventory/${item._id}`} ><button className='btn btn-primary'>Update</button></Link>
                   
-              </div>
-                  </div>
+              
+                  
               
                 
 

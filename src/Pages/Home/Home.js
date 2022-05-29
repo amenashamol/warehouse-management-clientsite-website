@@ -1,18 +1,28 @@
-import React from 'react';
+
 import Inventories from '../Inventories/Inventories';
 import PageTitle from '../PageTitle/PageTitle';
-import InputForm from './inputForm/InputForm';
+
 
 import Banner from './Banner/Banner';
+import Contact from './Contact';
+
 import './Home.css'
 
+import Reviews from './Reviews';
+
+
 const Home = () => {
+    
     return (
+
         <div>
-            <InputForm></InputForm>
+            
            <Banner></Banner>
            
            <Inventories></Inventories>
+           
+           <Reviews></Reviews>
+           <Contact></Contact>
             <PageTitle title="Home"></PageTitle> 
         </div>
     );

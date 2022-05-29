@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../../images/it.jpg'
+import logo from '../../../images/fruit.jpg'
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import CustomLink from '../../CustomLink/CustomLink';
 //import logo from '../../../../images/logo.png'
@@ -40,9 +40,10 @@ const Header = () => {
       <CustomLink as={Link} to="home#inventories" id='#inventories'>Inventories</CustomLink>
       
       <CustomLink as={Link} to="/blogs">Blogs</CustomLink>
+      <CustomLink as={Link} to="/AddInventory">Add</CustomLink>
       {
         user ?
-
+        
         <button className='btn btn-link text-white text-decoration-none' onClick={handleSignOut}>sign out</button>
 
         :

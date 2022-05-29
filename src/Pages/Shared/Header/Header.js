@@ -40,12 +40,14 @@ const Header = () => {
       <CustomLink as={Link} to="home#inventories" id='#inventories'>Inventories</CustomLink>
       
       <CustomLink as={Link} to="/blogs">Blogs</CustomLink>
-      <CustomLink as={Link} to="/AddInventory">Add</CustomLink>
+      
       {
-        user ?
-        
+        user ? <>
+        <CustomLink as={Link} to="/AddInventory">Add Items</CustomLink>
+        <CustomLink as={Link} to="/myItem">My Items</CustomLink>
+        <CustomLink as={Link} to="/manageitem">Manage Item</CustomLink>
         <button className='btn btn-link text-white text-decoration-none' onClick={handleSignOut}>sign out</button>
-
+        </>
         :
           
       <CustomLink as={Link} to="/signin">SignIn</CustomLink>

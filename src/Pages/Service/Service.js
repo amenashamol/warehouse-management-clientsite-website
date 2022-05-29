@@ -29,7 +29,7 @@ const Service = ({item}) => {
               
               
                   
-              <Link to={`/inventory/${item._id}`} ><button className='btn btn-primary'>Update</button></Link>
+              <Link to={`/inventory/${item._id}`} ><button className='btn btn-primary'>Stock Update</button></Link>
                   
               
                   

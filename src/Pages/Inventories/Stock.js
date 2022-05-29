@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const Allinventory = ({item}) => {
+const Stock = ({item}) => {
     const{name,img,description,price,quantity}=item
     const [itms,setItms]=useState([])
 
@@ -51,7 +51,7 @@ const Allinventory = ({item}) => {
               <div className='flex d-flex ms-5' >
                   <div > 
                   <button  onClick={()=>handleInventoryDelete(item._id)} className='color-801336 btn btn-primary mx-5  '>
-                    delete
+                    deliver
                    </button>
                   </div>
 
@@ -74,4 +74,4 @@ const Allinventory = ({item}) => {
     );
 };
 
-export default Allinventory;
+export default Stock;

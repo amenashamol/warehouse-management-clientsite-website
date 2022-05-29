@@ -23,7 +23,7 @@ const Inventories = () => {
   
     const [items,setItems]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/inventory')
+        fetch('https://quiet-falls-79306.herokuapp.com/inventory')
         .then(res=>res.json())
         .then(data=>setItems(data))
     },

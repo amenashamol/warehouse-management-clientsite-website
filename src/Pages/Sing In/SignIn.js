@@ -1,13 +1,15 @@
 import React, {useState,useEffect} from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import auth from '../../../firebase-init';
+import auth from '../../firebase-init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './SignIn.css'
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import PageTitle from '../../PageTitle/PageTitle';
+
+
+
 
 const SignIn = () => {
     const navigate= useNavigate()
@@ -27,13 +29,16 @@ const SignIn = () => {
         signInWithEmailAndPassword, user, loading,hookError,
         ] =useSignInWithEmailAndPassword(auth)
 
+       
+   
+
     const handleEmailChange= event=>{
         const emailRegex= /\S+@\S+\.\S+/
         const validEmail=emailRegex.test(event.target.value)
         if(validEmail){
            
             setUserInfo({...userInfo, email: event.target.value})
-           
+           console.log(userInfo)
              setErrors({...errors, email:""})
         }
 
@@ -46,12 +51,13 @@ const SignIn = () => {
     const handlePasswordChange= event=>{
         const passwordRegex=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
         const validPassword=passwordRegex.test(event.target.value)
+        console.log(validPassword)
 
         if(validPassword){
            
-            setUserInfo({...userInfo, password: event.target.value})
-            console.log(userInfo)
-             setErrors({...errors, password:""})
+            setUserInfo({...userInfo, validPassword: event.target.value})
+           console.log(userInfo)
+             setErrors({...errors, validPassword:""})
         }
 
         else{
@@ -107,7 +113,7 @@ const SignIn = () => {
             <p>Forget passsword ? <button  onClick={resetPassword} className='btn btn-link text-white pe-auto text-decoration-none' >Reset password</button></p>
             </form>
             <SocialLogin></SocialLogin>
-            <PageTitle title="SignIn"></PageTitle>
+            
         </div>
     );
 };

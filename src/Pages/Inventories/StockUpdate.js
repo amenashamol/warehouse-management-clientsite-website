@@ -2,14 +2,14 @@ import React ,{useState,useEffect}from 'react';
 import { Link } from 'react-router-dom';
 
 
-import Allinventory from './Allinventory';
+import Stock from './Stock';
 
 
-const Inventories = () => {
+const StockUpdate = () => {
   
     const [items,setItems]=useState([])
     useEffect(()=>{
-        fetch('https://quiet-falls-79306.herokuapp.com/allinventory')
+        fetch('http://localhost:5000/allinventory')
         .then(res=>res.json())
         .then(data=>setItems(data))
     },
@@ -18,21 +18,21 @@ const Inventories = () => {
 
     return (
         <div id ="#services" className='container' >
-            <Link to="/AddInventory"> <button className='btn btn-info'>Add new item</button></Link>
+            <Link to='/manageinventory' ><button className='btn btn-primary my-5 '>ManageInventories</button></Link>
             <div className='row'>
-            <h1 className='text-primary text-center mt-5 mb-2'> Our All Inventories</h1>
-            <div style={{height:'4px', width:"350px", borderRadius:"20px"}} className="bg-primary  mx-auto mt-0"></div>
+            <h1 className='text-primary text-center mt-3 mb-2'> quantity:{items.length}</h1>
+            <div style={{height:'4px', width:"200px", borderRadius:"20px"}} className="bg-primary  mx-auto mt-0"></div>
 
                 <div className='services-container'>
 
                     {
-                        items.map(item=> <Allinventory
+                        items.map(item=> <Stock>
                         key={item._id}
                         item={item}
                         
                         >
 
-                        </Allinventory>)
+                        </Stock>)
                     }
 
                 </div>
@@ -44,4 +44,4 @@ const Inventories = () => {
     );
 };
 
-export default Inventories;
+export default StockUpdate;

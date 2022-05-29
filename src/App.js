@@ -7,15 +7,19 @@ import Blogs from './Pages/Blogs/Blogs';
 import NotFound from './Pages/NotFound/NotFound';
 
 import Footer from './Pages/Shared/Footer/Footer';
-import SignIn from './Pages/Login/Sing In/SignIn';
-import SignUp from './Pages/Login/SignUp/SignUp';
+import SignIn from './Pages/Sing In/SignIn';
+import SignUp from './Pages/SignUp/SignUp';
 import Inventories from './Pages/Inventories/Inventories';
 import ServiceDetails from './Pages/ServiceDetails/ServiceDetails';
 import CheackOut from './Pages/Checackout/CheackOut';
-import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import AddInventory from './Pages/AddInventory/AddInventory';
 import UpdateModal from './Pages/updateModal/UpdateModal';
 import ManageInventory from './Pages/Inventories/ManageInventory';
+
+import MyItem from './Pages/Inventories/MyItem';
+import ManageItems from './Pages/Inventories/ManageItems';
+import StockUpdate from './Pages/Inventories/StockUpdate';
 
 function App() {
   return (
@@ -39,10 +43,14 @@ function App() {
 
 <Route path='/inventory/:id' element={
           <RequireAuth>
-            <UpdateModal></UpdateModal>
+            <StockUpdate></StockUpdate>
           </RequireAuth>
         }></Route>
+        
   <Route path='/ManageInventory' element={<ManageInventory></ManageInventory>}></Route>
+  <Route path='/myItem' element={<MyItem></MyItem>
+  }></Route>
+  <Route path='/manageItem' element={<ManageItems></ManageItems>}></Route>
   <Route path='*' element={<NotFound></NotFound>}></Route>
 </Routes>
 

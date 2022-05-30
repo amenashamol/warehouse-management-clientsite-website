@@ -8,7 +8,7 @@ const Stock = ({item}) => {
     const [itms,setItms]=useState([])
 
     useEffect(() => {
-        fetch('https://quiet-falls-79306.herokuapp.com/allinventory')
+        fetch('http://localhost:5000/allinventory')
         .then(res=>res.json())
         .then(data=>setItms(data))
         
@@ -19,7 +19,7 @@ const Stock = ({item}) => {
           const proceed=window.confirm('are you sure you want to delete ')
           if(proceed){
               
-              const url= `https://quiet-falls-79306.herokuapp.com/allinventory/${id}`
+              const url= `http://localhost:5000/allinventory/${id}`
               fetch(url,{
                   method:'DELETE'
 
@@ -48,20 +48,16 @@ const Stock = ({item}) => {
               <p>Quantity:{quantity}</p>
               <p>Supplier_Name:{quantity}</p>
               
-              <div className='flex d-flex ms-5' >
+              {/* <div className='flex d-flex ms-5' >
                   <div > 
                   <button  onClick={()=>handleInventoryDelete(item._id)} className='color-801336 btn btn-primary mx-5  '>
                     deliver
                    </button>
                   </div>
 
-              <div>
-                  
               
-                  
-              </div>
                   </div>
-              
+               */}
                 
 
                 

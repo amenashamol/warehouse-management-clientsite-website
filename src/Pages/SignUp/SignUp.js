@@ -1,8 +1,9 @@
-import React , {useState,useEffect}from 'react';
+import React from 'react';
 import './SignUp.css'
-
+import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase-init';
+import Loading from '../Shared/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -10,111 +11,85 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 
 const SignUp = () => {
     
-    const [userInfo,setUserInfo]=useState({
-        email:"",
-        password:"",
-        conformPassword:"",
-    })
-    
-    const [errors,setErrors]=useState({
-        email:" ",
-        password:" ",
-        general:" ",
-    })
-
-
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
-        hookError,
-      ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification: true });
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
 
-    const handleEmailChange= event=>{
-        const emailRegex= /\S+@\S+\.\S+/
-        const validEmail=emailRegex.test(event.target.value)
-        if(validEmail){
-            setUserInfo({...userInfo, email: event.target.value})
-             setErrors({...errors, email:""})
-        }
+    
+     
+    
+    const navigate = useNavigate();
 
-        else{
-            setErrors({...errors, email:'Invalid Email'})
-             setUserInfo({...userInfo,email:""})
-        }
+    let signInError;
+
+    if (loading) {
+        return <Loading></Loading>
     }
 
-    const handlePasswordChange= event=>{
-        const passwordRegex=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
-        const validPassword=passwordRegex.test(event.target.value)
-
-        if(validPassword){
-           
-            setUserInfo({...userInfo, password: event.target.value})
-             setErrors({...errors, password:""})
-        }
-
-        else{
-            setErrors({...errors, password: "minimum 6 charecter"})
-             setUserInfo({...userInfo, password:""})
-        }
+    if (error ) {
+        signInError = <p className='text-red-500'><small>{error?.message}</small></p>
     }
-
-
-    const handleConformPasswordChange= event=>{
-        
-
-        if(event.target.value===userInfo.password){
-           
-            setUserInfo({...userInfo, conformPassword: event.target.value})
-             setErrors({...errors, password:""})
-        }
-
-        else{
-            setErrors({...errors, password: "password dont match"})
-             setUserInfo({...userInfo,conformPassword:""})
-        }
-    }
-
-    const handleLogin=event=>{
-        event.preventDefault()
-        
-        createUserWithEmailAndPassword(userInfo.email,userInfo.password,userInfo.conformPassword)
-        
-    }
-
 
     
 
-    const navigate=useNavigate()
-    const location=useLocation()
-    const from= location.state?.from?.pathname || "/"
-     useEffect(() => {
-        
-    if(user){
-        navigate(from)
-
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+       
+        navigate('/');
     }
-        
-    }, [user])
-
-
     
 
 
     return (
         <div className='login-container'>
              <div className='login-title'>Sign Up</div>
-           <form className='login-form' onSubmit={handleLogin}>
-               <input type="text" name="email" placeholder='your Email' onBlur={handleEmailChange} required/>
-               {errors?.email && <p className='error-message'>{errors.email}</p>}
-               <input type="password" name="password" placeholder='your Password' onBlur={handlePasswordChange} required/>
-               {errors?.password && <p className='error-message'>{errors.password}</p>}
-               <input type="password" name="conformPassword" placeholder='conform Password' onBlur={handleConformPasswordChange} required/>
+           <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
+           <input type="text" name="name" placeholder='your name' {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is Required'
+                                    }
+                                })}/>
+                 <label className="label">
+                                {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                 </label>                
+               <input type="text" name="email" placeholder='your Email' {...register("email", {
+                                    required: {
+                                        value: true,
+                                        message: 'Email is Required'
+                                    },
+                                    pattern: {
+                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                        message: 'Provide a valid Email'
+                                    }
+                                })}/>
+               <label className="label">
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                            </label>
+               <input type="password" name="password" placeholder='your Password' {...register("password", {
+                                    required: {
+                                        value: true,
+                                        message: 'Password is Required'
+                                    },
+                                    minLength: {
+                                        value: 6,
+                                        message: 'Must be 6 characters or longer'
+                                    }
+                                })}/>
+              <label className="label">
+                 {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+               </label>
                
                
-                
+               {signInError}
                <button>Resister</button>
+
                 <p>Already have an account ? <Link to='/signin' className='text-primary pe-auto text-decoration-none' >Please login</Link></p>
             <ToastContainer  />
             </form>

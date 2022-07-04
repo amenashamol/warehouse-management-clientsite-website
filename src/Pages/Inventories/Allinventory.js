@@ -8,7 +8,7 @@ const Allinventory = ({item}) => {
     const [itms,setItms]=useState([])
 
     useEffect(() => {
-        fetch('https://mysterious-plateau-57967.herokuapp.com/allinventory')
+        fetch('http://localhost:5000/allinventory')
         .then(res=>res.json())
         .then(data=>setItms(data))
         
@@ -19,7 +19,7 @@ const Allinventory = ({item}) => {
           const proceed=window.confirm('are you sure you want to delete ')
           if(proceed){
               
-              const url= `https://mysterious-plateau-57967.herokuapp.com/allinventory/${id}`
+              const url= `http://localhost:5000/allinventory/${id}`
               fetch(url,{
                   method:'DELETE'
 

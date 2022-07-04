@@ -1,7 +1,10 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import auth from "../../firebase-init";
 
 const AddInventory = () => {
+  const [user]=useAuthState(auth)
   const {
     register,
     handleSubmit,
@@ -10,7 +13,7 @@ const AddInventory = () => {
   const onSubmit = (data) =>{
    console.log(data);
 
-   const url='https://mysterious-plateau-57967.herokuapp.com/inventory'
+   const url='http://localhost:5000/inventory'
    fetch(url,{
        method:'POST',
        headers:{
@@ -31,6 +34,7 @@ const AddInventory = () => {
         <h2>Add inventory</h2>
      <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
      <input className="mb-2" placeholder="name" {...register("name", { required: true, maxLength: 20 })} />
+     <input className="mb-2" placeholder="email" type="text" value={user?.email} {...register("email")} />
      <input className="mb-2" placeholder="photo url" type="text" {...register("img")} />
       <input className="mb-2" placeholder="description" {...register("description", )} />
       <input className="mb-2" placeholder="price" type="number" {...register("price")} />

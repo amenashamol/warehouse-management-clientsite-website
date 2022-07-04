@@ -9,7 +9,7 @@ const Inventories = () => {
   
     const [items,setItems]=useState([])
     useEffect(()=>{
-        fetch('https://mysterious-plateau-57967.herokuapp.com/allinventory')
+        fetch('http://localhost:5000/allinventory')
         .then(res=>res.json())
         .then(data=>setItems(data))
     },

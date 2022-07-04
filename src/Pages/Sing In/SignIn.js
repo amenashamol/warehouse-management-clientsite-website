@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './SignIn.css'
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { async } from '@firebase/util';
+import axios from 'axios';
 
 
 
@@ -29,11 +31,7 @@ const SignIn = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    useEffect( () =>{
-        if (user) {
-            navigate(from, { replace: true });
-        }
-    }, [user, from, navigate])
+    
 
 
     if (loading) {
@@ -44,8 +42,16 @@ const SignIn = () => {
         signInError= <p className='text-red-500'><small>{error?.message }</small></p>
     }
 
-    const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password);
+    const onSubmit = async data => {
+        const email=data.email
+        const password= data.password
+     await signInWithEmailAndPassword(email, password);
+     await axios.post('http://localhost:5000/login',{email})
+    
+    .then(res=>{
+        localStorage.setItem('token',res.data.token)
+    })
+    navigate(from, { replace: true });
         
     }
     return (

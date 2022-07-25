@@ -1,18 +1,11 @@
-import React,{useState,useEffect} from 'react';
+
 import { Link } from 'react-router-dom';
 
 import './Service.css'
 
 const Service = ({item}) => {
     const{name,img,description,price,quantity}=item
-    const [itms,setItms]=useState([])
-
-    useEffect(() => {
-        fetch('http://localhost:5000/inventory')
-        .then(res=>res.json())
-        .then(data=>setItms(data))
-        
-    }, [])
+    
     
 
     

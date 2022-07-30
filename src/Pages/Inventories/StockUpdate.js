@@ -8,7 +8,7 @@ const StockUpdate = () => {
     const {id}=useParams()
     
     useEffect(()=>{
-        const url=`http://localhost:5000/inventory/${id}`
+        const url=`https://mysterious-oasis-93671.herokuapp.com/inventory/${id}`
         fetch(url)
         .then(res=>res.json())
         .then(data=>setUser(data))
@@ -25,7 +25,7 @@ const StockUpdate = () => {
              }
        
                 
-        const url=`http://localhost:5000/inventory/${id}`
+        const url=`https://mysterious-oasis-93671.herokuapp.com/inventory/${id}`
      fetch(url,{
          method:'PUT',
          headers:{
@@ -51,7 +51,7 @@ const StockUpdate = () => {
             }
        
                 
-        const url=`http://localhost:5000/inventory/${id}`
+        const url=`https://mysterious-oasis-93671.herokuapp.com/inventory/${id}`
      fetch(url,{
          method:'PUT',
          headers:{

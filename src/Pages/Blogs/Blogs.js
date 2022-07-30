@@ -35,6 +35,15 @@ const Blogs = () => {
             </p> 
                  
                
+          </div>
+
+          <div className='node'>
+            <h2> # When to Use Node js and MongoDB:</h2>
+            <p >MongoDB and NodeJS are two different technologies. MonogDB is a database system which gives you a chance to efficiently store documents in a database and to perform operations like data updates, or to search documents by some criterias.
+            NodeJS's responsibilty is especially to execute your application
+            </p> 
+                 
+               
           </div> 
           <PageTitle title="Blogs"></PageTitle>    
         </div>

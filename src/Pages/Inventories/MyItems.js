@@ -3,6 +3,7 @@ import './Inventories.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase-init';
 import MyItem from './MyItem';
+import Loading from '../Shared/Loading';
 
 
 const MyItems = () => {
@@ -12,7 +13,12 @@ const MyItems = () => {
     useEffect(()=>{
     if(user){
         
-            fetch(`http://localhost:5000/myItem?email=${user.email}`)
+            fetch(`https://mysterious-oasis-93671.herokuapp.com/myItem?email=${user.email}`,{
+                method:'GET',
+                headers:{
+                    'authorization':`Bearer ${localStorage.getItem('token')}`
+                }
+             })
             .then(res=>res.json())
             .then(data=>setItems(data))
         
@@ -20,6 +26,7 @@ const MyItems = () => {
     }
     
 },[])
+
 
     return (
         <div id ="#services" className='container' >

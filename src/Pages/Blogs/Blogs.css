@@ -42,3 +42,12 @@ h5 {
     font-weight: 600;
 }
 
+.node{
+    background-color: rgb(152, 203, 219);
+}
+
+.node p{
+    padding: 0 30px 3px 50px; 
+    font-weight: 600;
+}
+

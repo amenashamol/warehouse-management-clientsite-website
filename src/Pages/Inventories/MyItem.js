@@ -10,9 +10,12 @@ const MyItem = ({item,items,setItems}) => {
         const proceed=window.confirm('are you sure you want to delete ')
         if(proceed){
             
-            const url= `http://localhost:5000/allinventory/${id}`
+            const url= `https://mysterious-oasis-93671.herokuapp.com/allinventory/${id}`
             fetch(url,{
-                method:'DELETE'
+                method:'DELETE',
+                headers:{
+                    'authorization':`Bearer ${localStorage.getItem('token')}`
+                }
 
             })
             .then(res=>res.json())

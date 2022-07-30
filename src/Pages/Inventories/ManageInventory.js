@@ -9,7 +9,12 @@ const ManageInventory = () => {
   
     const [items,setItems]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/allinventory')
+        fetch('https://mysterious-oasis-93671.herokuapp.com/allinventory',{
+            method:'GET',
+            headers:{
+                'authorization':`Bearer ${localStorage.getItem('token')}`
+            }
+         })
         .then(res=>res.json())
         .then(data=>setItems(data))
     },

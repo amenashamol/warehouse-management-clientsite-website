@@ -12,9 +12,9 @@ const AddInventory = () => {
     } = useForm();
 
   const onSubmit = (data) =>{
-   console.log(data);
+   
 
-   const url='http://localhost:5000/inventory'
+   const url='https://mysterious-oasis-93671.herokuapp.com/inventory'
    fetch(url,{
        method:'POST',
        headers:{
@@ -40,7 +40,7 @@ const AddInventory = () => {
      <input className="mb-2" placeholder="photo url" type="text" {...register("img")} />
       <input className="mb-2" placeholder="description" {...register("description", )} />
       <input className="mb-2" placeholder="price" type="number" {...register("price")} />
-      <input className="mb-2" placeholder="quantity" type="number" {...register("quantity")} />
+      <input className="mb-2" placeholder="quantity" type="number" min='0' {...register("quantity",{required:true})} />
       <input className="mb-2" placeholder="supplier_name" type="text" {...register("supplier_name",)} />
       
       <input className="mb-2"  type="submit"  value="add submit"/>

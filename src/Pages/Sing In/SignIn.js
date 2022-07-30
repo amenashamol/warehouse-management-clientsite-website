@@ -1,14 +1,13 @@
-import React, {useEffect} from 'react';
+import React  from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase-init';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './SignIn.css'
 import SocialLogin from '../SocialLogin/SocialLogin';
-import { async } from '@firebase/util';
 import axios from 'axios';
 
 
@@ -16,11 +15,10 @@ import axios from 'axios';
 
 
 const SignIn = () => {
-    // const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         signInWithEmailAndPassword,
-        user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
@@ -46,7 +44,7 @@ const SignIn = () => {
         const email=data.email
         const password= data.password
      await signInWithEmailAndPassword(email, password);
-     await axios.post('http://localhost:5000/login',{email})
+     await axios.post('https://mysterious-oasis-93671.herokuapp.com/login',{email})
     
     .then(res=>{
         localStorage.setItem('token',res.data.token)

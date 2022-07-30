@@ -19,13 +19,10 @@ const StockUpdate = () => {
       const  AddQuantity=event=>{
         event.preventDefault();
         
-
         const order = {
-            
             quantity:parseInt(user.quantity)+parseInt(newQuantity)
             
-            
-        }
+             }
        
                 
         const url=`http://localhost:5000/inventory/${id}`
@@ -48,13 +45,10 @@ const StockUpdate = () => {
     const  DeleveryQuantity=event=>{
         event.preventDefault();
         
-
         const order = {
-            
             quantity:parseInt(user.quantity)-parseInt(newQuantity)
             
-            
-        }
+            }
        
                 
         const url=`http://localhost:5000/inventory/${id}`
@@ -81,17 +75,17 @@ const StockUpdate = () => {
                 <div className='service'>  
                     <h2 style={{marginBottom:"10px"}}>{user.name}</h2>
                     <img className='w-100'  style={{height:"300px"}} src={user.img} alt=""/> 
-                    <p>Description:{user.description}</p>
-                    <p>Price:{user.price}</p>
-                    <p>Quantity:{user.quantity}</p>
-                    <p>Supplier_Name:{user.supplier_name}</p>
-                     <form>
-                     <div className='flex d-flex ms-1 ' >
-                        <div className='w-50 ms-4' > 
-                            <input value={newQuantity} onChange={e=>{setNewQuantity(e.target.value)}} size="sm" className="mb-2 px-8" name='newQuantity' placeholder="quantity" type="number"  />
+                    
+                    <p>Price:  {user.price}</p>
+                    <p>Quantity: {user.quantity}</p>
+                   
+                    
+                     <div style={{ width:"350px"}} className='flex d-flex ms-1  ' >
+                        <div className=' ms-4' > 
+                            <input value={newQuantity} min='0'  onChange={e=>{setNewQuantity(e.target.value)}} style={{ width:"120px"}}  className="mb-2 px-8" name='newQuantity' placeholder="quantity" type="number"  />
                         </div>
-                        <div className='w-50 ms-4'> 
-                            <button onClick={AddQuantity}  className='color-801336 btn btn-primary   '>
+                        <div className=' ms-4'> 
+                            <button onClick={AddQuantity}  className='color-801336 btn btn-primary ms-4  '>
                             Add Quantity
                             </button>
                         </div>
@@ -102,7 +96,7 @@ const StockUpdate = () => {
                         <button onClick={DeleveryQuantity}  className='color-801336 btn btn-primary mx-5  '>
                             Delevery
                         </button>
-                     </form>
+                    
                     
               
                 </div>  

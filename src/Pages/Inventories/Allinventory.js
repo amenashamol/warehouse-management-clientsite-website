@@ -15,7 +15,10 @@ const Allinventory = ({item,items,setItems}) => {
               
               const url= `http://localhost:5000/allinventory/${id}`
               fetch(url,{
-                  method:'DELETE'
+                  method:'DELETE',
+                  headers:{
+                    'authorization':`Bearer ${localStorage.getItem('token')}`
+                }
 
               })
               .then(res=>res.json())
@@ -40,7 +43,7 @@ const Allinventory = ({item,items,setItems}) => {
               <p>Description:{description}</p>
               <p>Price:{price}</p>
               <p>Quantity:{quantity}</p>
-              <p>Supplier_Name:{supplier_name}</p>
+              <p>Supplier_Name:  {supplier_name}</p>
               
               <div className='flex d-flex ms-2' >
                   <div > 

@@ -1,18 +1,12 @@
-import React, {useState,useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 
 
-const Allinventory = ({item}) => {
-    const{name,img,description,price,quantity}=item
-    const [itms,setItms]=useState([])
 
-    useEffect(() => {
-        fetch('http://localhost:5000/allinventory')
-        .then(res=>res.json())
-        .then(data=>setItms(data))
-        
-    }, [])
+const Allinventory = ({item,items,setItems}) => {
+    const{name,img,description,price,quantity,supplier_name}=item
+    
     
 
     const handleInventoryDelete=id=>{
@@ -26,11 +20,11 @@ const Allinventory = ({item}) => {
               })
               .then(res=>res.json())
               .then(data=>{
-                  if(data.deletedCount>0){
-                      console.log('deleted')
-                       const remaining=itms.filter(item=>item._id!==id)
-                       console.log(remaining)
-                      setItms(remaining)
+                  if(data.deletedCount > 0){
+                     
+                       const remaining=items.filter(item=>item._id!==id)
+                       
+                      setItems(remaining)
                     }
               })
               
@@ -46,13 +40,16 @@ const Allinventory = ({item}) => {
               <p>Description:{description}</p>
               <p>Price:{price}</p>
               <p>Quantity:{quantity}</p>
-              <p>Supplier_Name:{quantity}</p>
+              <p>Supplier_Name:{supplier_name}</p>
               
-              <div className='flex d-flex ms-5' >
+              <div className='flex d-flex ms-2' >
                   <div > 
                   <button  onClick={()=>handleInventoryDelete(item._id)} className='color-801336 btn btn-primary mx-5  '>
                     delete
                    </button>
+                   </div>
+                   <div> 
+                   <Link to={`/inventory/${item._id}`} ><button className='btn btn-primary'>Stock Update</button></Link>
                   </div>
 
               <div>

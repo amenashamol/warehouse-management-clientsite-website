@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import auth from "../../firebase-init";
+import { toast } from 'react-toastify';
 
 const AddInventory = () => {
   const [user]=useAuthState(auth)
@@ -24,7 +25,8 @@ const AddInventory = () => {
    })
    .then(res=>res.json())
    .then(result=>{
-       console.log(result)
+    
+    toast.success('item insert is success')
    })
 
 }
@@ -39,10 +41,11 @@ const AddInventory = () => {
       <input className="mb-2" placeholder="description" {...register("description", )} />
       <input className="mb-2" placeholder="price" type="number" {...register("price")} />
       <input className="mb-2" placeholder="quantity" type="number" {...register("quantity")} />
-      <input className="mb-2" placeholder="supplier_name" type="text" {...register("supplier_name")} />
+      <input className="mb-2" placeholder="supplier_name" type="text" {...register("supplier_name",)} />
       
       <input className="mb-2"  type="submit"  value="add submit"/>
     </form>
+    
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Allinventory from './Allinventory';
 
 
-const Inventories = () => {
+const ManageInventory = () => {
   
     const [items,setItems]=useState([])
     useEffect(()=>{
@@ -18,10 +18,13 @@ const Inventories = () => {
 
     return (
         <div id ="#services" className='container' >
-            <Link to="/AddInventory"> <button className='btn btn-info'>Add new item</button></Link>
+            
+            <h1 className='text-primary text-center mt-2 mb-2'> Our All Inventories</h1>
+            
+            <div style={{height:'4px', width:"350px", borderRadius:"20px"}} className="bg-primary  mx-auto mt-0 mb-4"></div>
+            <Link to="/AddInventory"> <button className='btn btn-info mb-2'>Add new item</button></Link>
             <div className='row'>
-            <h1 className='text-primary text-center mt-5 mb-2'> Our All Inventories</h1>
-            <div style={{height:'4px', width:"350px", borderRadius:"20px"}} className="bg-primary  mx-auto mt-0"></div>
+            
 
                 <div className='services-container'>
 
@@ -29,7 +32,8 @@ const Inventories = () => {
                         items.map(item=> <Allinventory
                         key={item._id}
                         item={item}
-                        
+                        items={items}
+                        setItems={setItems}
                         >
 
                         </Allinventory>)
@@ -44,4 +48,4 @@ const Inventories = () => {
     );
 };
 
-export default Inventories;
+export default ManageInventory;
